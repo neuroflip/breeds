@@ -15,7 +15,7 @@ const BreedsChart = () => {
 
   return (<div>
     <h1>Breeds Chart</h1>
-    { isLoading ? <p>Loading...</p> : 
+    { isLoading ? <p>Loading...</p> :
         error ? <p>{ error }</p> :
           <>{ breeds.map((breed: BreedsData)=><div> { breed.name }: { breed.images }</div>)}</> }
   </div>)

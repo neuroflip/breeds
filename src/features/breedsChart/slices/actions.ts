@@ -3,10 +3,3 @@ export const fetchBreeds = () => {
     type: `breedsChart/fetchBreeds`
   }
 }
-
-export const getAllBreedsImages = (breeds: Array<string>) => { 
-  return {
-    type: `breedsChart/getAllBreedsImages`,
-    payload: { breeds: breeds }
-  }
-}

@@ -3,11 +3,6 @@ export type BreedsData = {
   images: number
 }
 
-/*interface breedsChartActionPayload {
-  breeds: Array<string>
-}*/
-
-
 export interface breedsChartAction {
   type: string
   payload: Array<string>
