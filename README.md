@@ -10,4 +10,28 @@
 - the code is organized into /src/features as a single feature. This allows to scale the project including new features
 - all the features and components are self encapsulated at his own dir, including the code, custom hooks, tests, styles or other resources like images.
 
+### Instructions:
 
+git clone from the repository: https://github.com/neuroflip/breeds
+
+to install dependencies:
+> npm install
+
+to build:
+> npm run build
+
+to start:
+> npm run preview
+
+> open a browser window: http://localhost:4173
+
+unit tests
+> npm run test
+
+## TODO:
+- ErrorBox component to show errors in BreedsChart or other place
+- code tests
+- decisions about middleware vs thunk for fetch actions
+- responsive UI
+- accessibility and aria attributes
+- styled components
