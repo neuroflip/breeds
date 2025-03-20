@@ -9,7 +9,7 @@ const BreedsChart = () => {
   const error = useAppSelector(selectError)
   const breeds = useAppSelector(selectBreeds)
 
-  if(!breeds.length) {
+  if(!breeds.length && !isLoading && !error) {
     dispatch(fetchBreeds())
   }
 

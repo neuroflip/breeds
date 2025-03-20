@@ -1,11 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { BreedsData } from "./types";
+import { RootThunkAPI, BreedsData } from "./types";
+import { checkResponseAndThrowErrorIfNeedded, getFetchImageAPIUrl } from "./utils";
 
 const BREAD_API = "https://dog.ceo/api/breeds/list/all"
-
-const getFetchImageAPIUrl = (name: string) => {
-  return `https://dog.ceo/api/breed/${name}/images`
-}
 
 const initialState: { breeds: BreedsData[]; isLoading: boolean; error: string | null } = {
   breeds: [],
@@ -13,19 +10,23 @@ const initialState: { breeds: BreedsData[]; isLoading: boolean; error: string | 
   error: null,
 }
 
-export const fetchBreeds = createAsyncThunk('breedsChart/fetchBreeds', async () => {
+export const fetchBreeds = createAsyncThunk('breedsChart/fetchBreeds', async (_, thunkApi) => {
   const response = await fetch(BREAD_API);
   const data = await response.json();
-  const breeds: Array<BreedsData> = Object.keys(data.message).map((breed) => ({ name: breed, images: 0 }))
 
-  const res = breeds.map(async (breed: BreedsData) => {
+  checkResponseAndThrowErrorIfNeedded(response.status, data, thunkApi as RootThunkAPI);
+
+  const breeds: Array<BreedsData> = Object.keys(data.message).map((breed) => ({ name: breed, images: 0 }))
+  const result = breeds.map(async (breed: BreedsData) => {
     const response = await fetch(getFetchImageAPIUrl(breed.name));
     const data = await response.json();
-    
-    return { name: breed.name, images: data.message.length } ;
+
+    checkResponseAndThrowErrorIfNeedded(response.status, data, thunkApi as RootThunkAPI);
+
+    return { name: breed.name, images: data.message.length };
   })
 
-  return await Promise.all(res);
+  return await Promise.all(result);
 });
 
 export const breedsChartSlice = createSlice({
@@ -47,7 +48,7 @@ export const breedsChartSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(fetchBreeds.rejected, (state, action) => {
-        state.error = action.error.message || "Failed to fetch breeds";
+        state.error = action.payload as string || "Failed to fetch breeds";
         state.isLoading = false;
       })
   }
