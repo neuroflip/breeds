@@ -1,2 +1,6 @@
-# breeds
-Strands - Breeds of Dogs
+STRANDS Tech Assesment
+
+- Decisions
+* use vite to avoid CRA deprecation
+
+
