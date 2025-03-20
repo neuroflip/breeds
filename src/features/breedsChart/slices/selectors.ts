@@ -1,14 +1,14 @@
-import { RootState } from "../../../store/store"
+import { AppState } from "../../../store/store"
 import { BreedsData } from "./types"
 
-export const selectIsLoading = (state: RootState) => {
+export const selectIsLoading = (state: AppState) => {
   return state.breedsChart.isLoading
 }
 
-export const selectBreeds = (state: RootState): Array<BreedsData> => {
+export const selectBreeds = (state: AppState): Array<BreedsData> => {
   return state.breedsChart.breeds
 }
 
-export const selectError = (state: RootState) => {
+export const selectError = (state: AppState) => {
   return state.breedsChart.error
 }

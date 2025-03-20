@@ -1,4 +1,4 @@
-import { RootState, AppDispatch } from "../../../store/store"
+import { AppState, AppDispatch } from "../../../store/store"
 
 export type BreedsData = {
   name: string,
@@ -17,7 +17,7 @@ export type DogApiError = {
 }
 
 export type RootThunkAPI = {
-  getState: () => RootState;
+  getState: () => AppState;
   dispatch: AppDispatch;
   rejectWithValue: (value: string) => void;
 };
