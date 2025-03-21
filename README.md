@@ -29,6 +29,7 @@ unit tests
 > npm run test
 
 ## TODO:
+- Verify if all the calculations are correct at level of not doing innecessary/redundant calculations 
 - code tests
 - ErrorBox component to show errors in BreedsChart or other place. Needs tests.
 - check the usage of main.tsx and app.tsx, Apps is needed? (call directly to BreedsChart component)
