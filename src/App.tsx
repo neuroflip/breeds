@@ -1,9 +1,10 @@
+import BreedsChart from './features/breedsChart/BreedsChart'
+
 import './App.css'
 
 function App() {
-
   return (
-    <>App</>
+    <BreedsChart />
   )
 }
 
