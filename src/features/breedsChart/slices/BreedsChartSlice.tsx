@@ -23,9 +23,9 @@ export const fetchBreeds = createAsyncThunk('breedsChart/fetchBreeds', async (_,
 
     checkResponseAndThrowErrorIfNeedded(response.status, data, thunkApi as RootThunkAPI);
 
-    return { 
-      name: breed.name, 
-      value: data.message.length 
+    return {
+      name: breed.name,
+      value: data.message.length
     };
   })
 

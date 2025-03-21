@@ -38,5 +38,7 @@ unit tests
 - accessibility and aria attributes
 - styled components (needed at this project scale?)
 
+- [DONE] Move the more generic components LoadingSpinner and ErrorBox out of the feature/BreedChart as they are generic not specific to the chart
+- [DONE] ResponsiveContainer wrapping the rechart pie makes a slooow repaint when resizing the window. Remove it and use a container with auto margin
 - [DONE] unify interfave vs type in definitions
 - [DONE] memoize the more heavy computation selectors with CreateSelector: selectBreedsByImagePercentage

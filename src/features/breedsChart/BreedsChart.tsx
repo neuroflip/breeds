@@ -1,11 +1,11 @@
 import { useAppDispatch, useAppSelector } from "../../store/store"
 import { fetchBreeds } from "./slices/BreedsChartSlice"
 import { selectIsLoading, selectError, selectBreedsByImagePercentage, selectBreeds } from "./slices/selectors"
-import BreedsPieChart from "./components/BreedsPieChart"
-import ErrorBox from "./components/ErrorBox"
-import LoadingSpinner from "./components/LoadingSpinner/LodingSpinner"
+import ResponsivePieChart from "./components/ResponsivePieChart/ResponsivePieChart"
+import ErrorBox from "../../components/ErrorBox/ErrorBox"
+import LoadingSpinner from "../../components/LoadingSpinner/LodingSpinner"
 
-import './breedsChart.css'
+import styles from './breedsChart.module.css'
 import img from './images/dogFingerprint.png'
 
 const BreedsChart = () => {
@@ -13,19 +13,23 @@ const BreedsChart = () => {
   const isLoading = useAppSelector(selectIsLoading)
   const error = useAppSelector(selectError)
   const breeds = useAppSelector(selectBreeds)
-  const breedsByPercent = useAppSelector(selectBreedsByImagePercentage)
+  const breedImagesPercent = useAppSelector(selectBreedsByImagePercentage)
 
   if(!breeds.length && !isLoading && !error) {
     dispatch(fetchBreeds())
   }
 
-  return (<><div className="breedsChart--title">
+  return (<>
+    <div className={styles.breedsChart__title}>
       <img width={ 50 } height={ 50 } src={img} alt="dog fingerprint" />
       <h1>Breeds Chart</h1>
     </div>
-    { isLoading ? <LoadingSpinner /> :
-        error ? <ErrorBox errorMessage={error} /> : <BreedsPieChart data={ breedsByPercent } /> }
-    </>)
+    <div className={styles.breedsChart__content}>
+      { isLoading ? <LoadingSpinner /> :
+        error ? <ErrorBox errorMessage={error} /> :
+          <ResponsivePieChart data={ breedImagesPercent } /> }
+    </div>
+  </>)
 }
 
 export default BreedsChart
