@@ -1,0 +1,11 @@
+.breedsChart--title {
+  display: flex;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.breedsChart--title img {
+  width: 50px;
+  height: 50px;
+  margin: auto 10px;
+}

@@ -29,9 +29,13 @@ unit tests
 > npm run test
 
 ## TODO:
-- ErrorBox component to show errors in BreedsChart or other place
 - code tests
+- ErrorBox component to show errors in BreedsChart or other place. Needs tests.
+- check the usage of main.tsx and app.tsx, Apps is needed? (call directly to BreedsChart component)
 - decisions about middleware vs thunk for fetch actions
-- responsive UI
+- responsive UI: smartphone cuts some labels
 - accessibility and aria attributes
-- styled components
+- styled components (needed at this project scale?)
+
+- [DONE] unify interfave vs type in definitions
+- [DONE] memoize the more heavy computation selectors with CreateSelector: selectBreedsByImagePercentage

@@ -16,14 +16,17 @@ export const fetchBreeds = createAsyncThunk('breedsChart/fetchBreeds', async (_,
 
   checkResponseAndThrowErrorIfNeedded(response.status, data, thunkApi as RootThunkAPI);
 
-  const breeds: Array<BreedsData> = Object.keys(data.message).map((breed) => ({ name: breed, images: 0 }))
+  const breeds: Array<BreedsData> = Object.keys(data.message).map((breed) => ({ name: breed, value: 0 }))
   const result = breeds.map(async (breed: BreedsData) => {
     const response = await fetch(getFetchImageAPIUrl(breed.name));
     const data = await response.json();
 
     checkResponseAndThrowErrorIfNeedded(response.status, data, thunkApi as RootThunkAPI);
 
-    return { name: breed.name, images: data.message.length };
+    return { 
+      name: breed.name, 
+      value: data.message.length 
+    };
   })
 
   return await Promise.all(result);
