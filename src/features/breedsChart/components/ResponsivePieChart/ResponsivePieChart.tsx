@@ -2,32 +2,30 @@ import { PieChart, Pie, Cell, Legend, ResponsiveContainer, Tooltip } from 'recha
 import { BreedsData } from '../../slices/types';
 import { colorPalette } from './colorPalette';
 
-import type { Totals } from '../../slices/selectors';
-
 type BreedsPieChartProps  = {
-  data: Totals
+  data: BreedsData[]
 }
 
 const getLabel = function(entry: BreedsData) {
   return `${ entry.value }%`;
 }
 
+const generatePieCells = (topTenBreeds: BreedsData[]) => {
+  return topTenBreeds.map((_entry, index) => (
+    <Cell key={`cell-${index}`} fill={colorPalette[index % colorPalette.length]} />
+  ))
+}
+
 const ResponsivePieChart = ({ data }: BreedsPieChartProps) => {
-  const topTenBreeds = data.topTenBreeds;
 
   return (<>
-    <p>Total Breeds: { data.totalBreeds }</p>
-    <p>Total Images: { data.totalImages }</p>
     <ResponsiveContainer width="100%" height={350}>
       <PieChart width={400} height={400}>
-        <Pie data={ topTenBreeds } cx="50%" cy="50%" labelLine={true}
+        <Pie data={ data } cx="50%" cy="50%" labelLine={true}
           label={ getLabel } outerRadius={ 80 }
           dataKey="value" nameKey="name">
-            { topTenBreeds.map((_entry, index) => (
-              <Cell key={`cell-${index}`} fill={colorPalette[index % colorPalette.length]} />
-          )) }
+            { generatePieCells(data) }
         </Pie>
-        <title>Breeds by image percentage</title>
         <Legend />
         <Tooltip />
       </PieChart>

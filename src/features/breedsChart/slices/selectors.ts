@@ -3,36 +3,42 @@ import { BreedsData } from "./types"
 import { createSelector } from "@reduxjs/toolkit"
 import { shallowEqual } from "react-redux"
 
-export type Totals = { totalImages: number, totalBreeds: number, topTenBreeds: Array<BreedsData> }
-
-
-export const selectIsLoading = (state: AppState) => {
+const selectIsLoading = (state: AppState) => {
   return state.breedsChart.isLoading
 }
 
-export const selectBreeds = (state: AppState): Array<BreedsData> => {
+const selectBreeds = (state: AppState): Array<BreedsData> => {
   return state.breedsChart.breeds
 }
 
-const selectTotalImages = (breeds: Array<BreedsData>) => {
-  return breeds.reduce((count, breed) => count + breed.value, 0)
+const selectError = (state: AppState) => {
+  return state.breedsChart.error
 }
 
-export const selectBreedsByImagePercentage =  createSelector(
+const selectTotalBreedsAmount = (state: AppState) => {
+  return state.breedsChart.breeds.length
+}
+
+const selectTotalImagesAmount = createSelector(
+  selectBreeds,
+  (breeds) => {
+    return breeds.reduce((count, breed) => count + breed.value, 0);
+  }
+);
+
+const selectBreedsByImagePercentage = createSelector(
   (state: AppState) => {
-    const breeds = state.breedsChart.breeds;
-    return { breeds: breeds, totalImages: selectTotalImages(breeds) }
+    const breeds = selectBreeds(state);
+
+    return { breeds: breeds, totalImages: selectTotalImagesAmount(state) }
   },
   (state) =>  {
     const breedsWithImagePercentage = state.breeds.map((breed) => ({
-      name: breed.name, value: Number((breed.value / state.totalImages * 100).toFixed(2))
+      name: breed.name,
+      value: Number((breed.value / state.totalImages * 100).toFixed(2))
     }));
 
-    return {
-      totalImages: state.totalImages,
-      totalBreeds: state.breeds.length,
-      topTenBreeds: breedsWithImagePercentage.sort((a, b) => b.value - a.value).slice(0, 10)
-    }
+    return breedsWithImagePercentage.sort((a, b) => b.value - a.value).slice(0, 10)
   }, {
     memoizeOptions: {
         resultEqualityCheck: shallowEqual,
@@ -40,6 +46,4 @@ export const selectBreedsByImagePercentage =  createSelector(
   }
 )
 
-export const selectError = (state: AppState) => {
-  return state.breedsChart.error
-}
+export { selectIsLoading, selectBreeds, selectError, selectTotalBreedsAmount, selectTotalImagesAmount, selectBreedsByImagePercentage }
