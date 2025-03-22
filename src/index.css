@@ -1,12 +1,5 @@
 :root {
-  --primary: #646cff;
-  --secondary: #f9f9f9;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  --primary: #009B93;
+  --secondary: #023642;
+  --tertiary: #e8e8e8;
 }

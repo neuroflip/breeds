@@ -1,24 +1,13 @@
-import { useAppDispatch, useAppSelector } from "../../store/store"
-import { fetchBreeds } from "./slices/BreedsChartSlice"
-import { BreedsData } from "./slices/types"
-import { selectIsLoading, selectBreeds, selectError } from "./slices/selectors"
+import ResponsivePieChart from "./components/ResponsivePieChart/ResponsivePieChart"
+import Card from "../../components/Card/Card"
+import useBreedsChart from "./hooks/useBreedsChart"
 
 const BreedsChart = () => {
-  const dispatch = useAppDispatch()
-  const isLoading = useAppSelector(selectIsLoading)
-  const error = useAppSelector(selectError)
-  const breeds = useAppSelector(selectBreeds)
+  const { renderTitle, breedImagesPercent } = useBreedsChart()
 
-  if(!breeds.length && !isLoading && !error) {
-    dispatch(fetchBreeds())
-  }
-
-  return (<div>
-    <h1>Breeds Chart</h1>
-    { isLoading ? <p>Loading...</p> :
-        error ? <p>{ error }</p> :
-          <>{ breeds.map((breed: BreedsData)=><div> { breed.name }: { breed.images }</div>)}</> }
-  </div>)
+  return <Card renderTitle={renderTitle}>
+      <ResponsivePieChart data={ breedImagesPercent } />
+    </Card>
 }
 
 export default BreedsChart
