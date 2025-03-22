@@ -17,7 +17,7 @@ const mockStore = configureStore({
 })
 
 vi.mock('../../ErrorBox/ErrorBox')
-vi.mock('../../LoadingSpinner/LodingSpinner')
+vi.mock('../../LoadingSpinner/LoadingSpinner')
 
 describe('Card Initial render and Load Content correctly', () => {
   beforeAll(() => {
