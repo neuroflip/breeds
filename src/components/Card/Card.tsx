@@ -12,15 +12,15 @@ type CardProps = {
 }
 
 const Card = ({ children, renderTitle, customErrorMessage }: CardProps) => {
-  const isLoading = useAppSelector(selectIsLoading)
-  const error = useAppSelector(selectError)
+    const isLoading = useAppSelector(selectIsLoading)
+    const error = useAppSelector(selectError)
 
-    return <div className={styles.card}>
+    return <article className={styles.card}>
         { renderTitle && renderTitle() }
         { isLoading ? <LoadingSpinner /> :
             error ? <ErrorBox errorMessage={ customErrorMessage ? customErrorMessage : error } /> :
                 children }
-    </div>
+    </article>
 }
 
 export default Card
