@@ -2,7 +2,7 @@
 import { selectError, selectIsLoading } from '../../features/breedsChart/slices/selectors';
 import { useAppSelector } from '../../store/store';
 import ErrorBox from '../ErrorBox/ErrorBox';
-import LoadingSpinner from '../LoadingSpinner/LodingSpinner';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import styles from './card.module.css';
 
 type CardProps = {

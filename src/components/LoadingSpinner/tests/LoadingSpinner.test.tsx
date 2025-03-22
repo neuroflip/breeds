@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import LoadingSpinner from '../LodingSpinner';
+import LoadingSpinner from '../LoadingSpinner';
 
 describe('LoadingSpinner', () => {
   test('initial render', () => {
