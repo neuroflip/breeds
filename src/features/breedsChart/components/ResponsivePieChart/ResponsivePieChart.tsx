@@ -11,9 +11,9 @@ const getLabel = function(entry: BreedsData) {
 }
 
 const generatePieCells = (topTenBreeds: BreedsData[]) => {
-  return topTenBreeds.map((_entry, index) => (
-    <Cell key={`cell-${index}`} fill={colorPalette[index % colorPalette.length]} />
-  ))
+  return topTenBreeds.map((_entry, index) => {
+    return <Cell key={`cell-${index}`} fill={colorPalette[index % colorPalette.length]} />
+  })
 }
 
 const ResponsivePieChart = ({ data }: BreedsPieChartProps) => {
