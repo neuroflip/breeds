@@ -5,7 +5,7 @@ exports[`Error Box > initial render 1`] = `
   <div
     aria-label="Error content"
     aria-live="polite"
-    class="errorBox"
+    class="sc-VHjGu eslFRO"
     role="alert"
   >
     <p>

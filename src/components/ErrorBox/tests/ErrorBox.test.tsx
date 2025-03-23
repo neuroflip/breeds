@@ -16,7 +16,6 @@ describe('Error Box', () => {
     expect(errorBoxElement).toBeInTheDocument();
     expect(inputErrorMessageElement).toBeInTheDocument();
     expect(standardErrorMessageElement).toBeInTheDocument();
-    expect(errorBoxElement.className).toBe('errorBox');
     expect(errorBoxElement.getAttribute('role')).toBe('alert');
 
     //snapshot

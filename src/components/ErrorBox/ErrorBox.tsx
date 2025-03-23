@@ -1,15 +1,15 @@
 
-import styles from './styles/errorBox.module.css'
+import ErrorBoxDiv from "./styled/ErrorBoxDiv"
 
 type ErrorBoxProps = {
   errorMessage: string
 }
 
 const ErrorBox = ({ errorMessage }: ErrorBoxProps) => {
-  return (<div className={ styles.errorBox } aria-label="Error content" role="alert" aria-live='polite'>
+  return (<ErrorBoxDiv aria-label="Error content" role="alert" aria-live='polite'>
     <p>{ errorMessage }</p>
     <p>Please, retry again later</p>
-  </div>)
+  </ErrorBoxDiv>)
 }
 
 export default ErrorBox

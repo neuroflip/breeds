@@ -52,7 +52,6 @@ describe('Card Initial render and Load Content correctly', () => {
 
     expect(cardElement).toBeInTheDocument();
     expect(cardElement.tagName).toBe('ARTICLE');
-    expect(cardElement.className).toBe('card');
     expect(screen.queryByText('ErrorBox')).not.toBeInTheDocument();
     expect(screen.queryByText('LoadingSpinner')).not.toBeInTheDocument();
 
@@ -90,7 +89,6 @@ describe('Card Initial render and Load Content correctly', () => {
     const cardElement = screen.getByRole('article');
 
     expect(cardElement).toBeInTheDocument();
-    expect(cardElement.className).toBe('card');
     expect(screen.queryByText('LoadingSpinner')).not.toBeInTheDocument()
     expect(screen.queryByText('ErrorBox')).not.toBeInTheDocument();
     expect(screen.getByText('Card Content')).toBeInTheDocument()
@@ -132,7 +130,6 @@ describe('Card Load Content correctly with error', () => {
     expect(screen.queryByText('LoadingSpinner')).not.toBeInTheDocument()
     expect(screen.queryByText('Card Content')).not.toBeInTheDocument()
     expect(cardElement).toBeInTheDocument();
-    expect(cardElement.className).toBe('card');
     expect(screen.getByText('ErrorBox')).toBeInTheDocument()
 
   })

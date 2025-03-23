@@ -4,7 +4,7 @@ exports[`Card Initial render and Load Content correctly > initial render before 
 <div>
   <article
     aria-label="Content presented in a card"
-    class="card"
+    class="sc-VHjGu kVVzEE"
   >
     Card Content
   </article>
