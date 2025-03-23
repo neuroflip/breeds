@@ -38,7 +38,7 @@ Architecture:
 * Using memoized selectors for more complex derived data from state: not memoized selectors causes re-paints and slows down the chart resizing the viewport.
 * Card component using composition and render props patterns to create a reusable component where put pieces of ui as a content card. It is used to render the main chart and the extra totals information as reuse example.
 * not using App Router as this is not a SPA. Only one main route. If the app scales we will need the App Router framework (or other framework as next.js).
-* BreedsChart component has his logic encapsulated at a custom hook. This pattern separates ui from the component logic (each with his own tests).
+* BreedsChartCard component has his logic encapsulated at a custom hook useBreedsChartCard. This pattern separates ui from the component logic (each with his own tests). At this case it is not necessary, but i did to show the idea behind that.
 * Responsive design: Flex layout at main container with different orientations for different screen sizes
 * Not using sass because the css is simple.
 * Not using styled components because the css usage is simple and the ui does not require reusability. If the project scales, we will need to rethink the ui using styled components.
@@ -52,18 +52,17 @@ Architecture:
 * project sent to review using github project. It adds visibility of all the implementation process for the reviewers. Created a continous integration github workflow to lint and test.
 
 ## If you had more time, what other features would you add to your app and how would you build them?
+- check for more code coverage in tests
+- scaffolding of end to end tests with cypress (or similar)
 - use App Router if the code scalates the code with more features
 - use of styled components to scalate better the ui
 - internationalization with i18n
 - implement pwa service worker with caching and offline features
 - UI: header hidding on scroll
-- check for more code coverage in tests
-- scaffolding of end to end tests with cypress (or similar)
 - accessibility tools to check the content https://www.w3.org/WAI/test-evaluate/tools/selecting/
 
-## TODO:
-- Añadir metas y og metas en el html
-
+## TODOs:
+- [DONE] Añadir metas y og metas en el html
 - [DONE] Move the initial dispatch for data from BreedsChartCard to App. This way the cards are only consumers of data
 - [DONE] Added tests for App lazy loading a component
 - [DONE] Compiling i'm getting the warning: "(!) Some chunks are larger than 500 kB after minification." So I make dinamyc imports for code splitting at App.tsx
@@ -93,4 +92,4 @@ Architecture:
 - [Thursday 21]: First decisions about general architecture. Task1 and Task2 implementation.
 - [Friday 22]: Task3 implementation 
 - [Saturday 23]: Tests and general beautify of the code and project
-- [Sunday 24]: Added snapshots tests. Final checks and reviews.
+- [Sunday 24]: Final changes, checks and review.
