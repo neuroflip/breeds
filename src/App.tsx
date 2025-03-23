@@ -1,5 +1,6 @@
 import { Suspense, lazy, useEffect } from 'react'
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
 import './styles/App.css'
 import { useAppDispatch } from './store/hooks';
@@ -16,13 +17,14 @@ function App() {
   }, [dispatch])
 
   return <main>
-    <Suspense fallback={ <LoadingSpinner /> }>
-      <BreedsChartCard />    
-    </Suspense>
-    <Suspense fallback={ <LoadingSpinner /> }>
-      <TotalsCard />
-    </Suspense>
-    
+    <ErrorBoundary>
+      <Suspense fallback={ <LoadingSpinner /> }>
+        <BreedsChartCard />    
+      </Suspense>
+      <Suspense fallback={ <LoadingSpinner /> }>
+        <TotalsCard />
+      </Suspense>
+    </ErrorBoundary>
   </main>
 }
 
