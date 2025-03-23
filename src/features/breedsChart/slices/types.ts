@@ -1,5 +1,3 @@
-import { AppState, AppDispatch } from "../../../store/store"
-
 type BreedsData = {
   name: string,
   value: number
@@ -16,10 +14,4 @@ type DogApiError = {
   code: number
 }
 
-type RootThunkAPI = {
-  getState: () => AppState;
-  dispatch: AppDispatch;
-  rejectWithValue: (value: string) => void;
-};
-
-export type { BreedsData, breedsChartAction, DogApiError, RootThunkAPI }
+export type { BreedsData, breedsChartAction, DogApiError }

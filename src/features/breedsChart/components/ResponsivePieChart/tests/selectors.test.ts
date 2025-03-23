@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { selectBreedsByImagePercentage, selectTotalImagesAmount } from '../../../slices/selectors';
+import { selectBreedsByTotalImagePercentage, selectTotalImagesAmount } from '../../../slices/selectors';
 import { AppState } from '../../../../../store/types';
 import longData from './longBreadsData.json'
 import shortData from './breadsData.json'
@@ -21,7 +21,7 @@ describe('Calculated selectors', () => {
     expect(result).toBe(400)
   })
 
-  test('selectBreedsByImagePercentage with less than 10 elements', () => {
+  test('selectBreedsByTotalImagePercentage with less than 10 elements', () => {
     const state: AppState = {
       breedsChart: {
         breeds: shortData,
@@ -30,7 +30,7 @@ describe('Calculated selectors', () => {
       }
     }
 
-    const result = selectBreedsByImagePercentage(state)
+    const result = selectBreedsByTotalImagePercentage(state)
 
     expect(result.length).toBe(3);
     for (let i=0; i<3; i++) {
@@ -39,7 +39,7 @@ describe('Calculated selectors', () => {
     }
   });
 
-  test('selectBreedsByImagePercentage with more than 10 elements', () => {
+  test('selectBreedsByTotalImagePercentage with more than 10 elements', () => {
     const state: AppState = {
       breedsChart: {
         breeds: longData,
@@ -48,7 +48,7 @@ describe('Calculated selectors', () => {
       }
     }
 
-    const result = selectBreedsByImagePercentage(state)
+    const result = selectBreedsByTotalImagePercentage(state)
 
     expect(result.length).toBe(10);
     for (let i=0; i<9; i++) {

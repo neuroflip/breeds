@@ -15,7 +15,7 @@ const Card = ({ children, renderTitle, customErrorMessage }: CardProps) => {
     const isLoading = useAppSelector(selectIsLoading)
     const error = useAppSelector(selectError)
 
-    return <article className={styles.card}>
+    return <article className={styles.card} aria-label="Content presented in a card">
         { renderTitle && renderTitle() }
         { isLoading ? <LoadingSpinner /> :
             error ? <ErrorBox errorMessage={ customErrorMessage ? customErrorMessage : error } /> :

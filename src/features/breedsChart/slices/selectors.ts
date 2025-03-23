@@ -26,16 +26,16 @@ const selectTotalImagesAmount = createSelector(
   }
 );
 
-const selectBreedsByImagePercentage = createSelector(
+const selectBreedsByTotalImagePercentage = createSelector(
   (state: AppState) => {
     const breeds = selectBreeds(state);
 
     return { breeds: breeds, totalImages: selectTotalImagesAmount(state) }
   },
-  (state) =>  {
-    const breedsWithImagePercentage = state.breeds.map((breed) => ({
+  (breedsAndTotalImages) =>  {
+    const breedsWithImagePercentage = breedsAndTotalImages.breeds.map((breed) => ({
       name: breed.name,
-      value: Number((breed.value / state.totalImages * 100).toFixed(2))
+      value: Number((breed.value / breedsAndTotalImages.totalImages * 100).toFixed(2))
     }));
 
     return breedsWithImagePercentage.sort((a, b) => b.value - a.value).slice(0, 10)
@@ -46,4 +46,4 @@ const selectBreedsByImagePercentage = createSelector(
   }
 )
 
-export { selectIsLoading, selectBreeds, selectError, selectTotalBreedsAmount, selectTotalImagesAmount, selectBreedsByImagePercentage }
+export { selectIsLoading, selectBreeds, selectError, selectTotalBreedsAmount, selectTotalImagesAmount, selectBreedsByTotalImagePercentage }

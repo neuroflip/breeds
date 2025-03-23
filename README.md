@@ -33,8 +33,8 @@ unit tests
 
 * using vite to avoid CRA deprecation https://github.com/facebook/create-react-app#readme
 * using redux toolkit: createSlice (for mutable state) and createSelector (for memoized selectors). Adds best practices, simplifies most Redux tasks and prevents common mistakes.
-* use AsyncThunk for the async operations (fetch data): simplifies the code to manage the loading state and error management.
-* The main store action launches the asyncThunk that fetches all the breeds from the API. Using map prepares the data as a name and value pair. Then for each name makes a fetch to get all the images for that breed.
+* use AsyncThunk for the async operations (fetch data): simplifies the code to manage the pending, fullfilled or error states.
+* The main store action launches the asyncThunk that fetches all the breeds from the API. Using map prepares the data as a name and value pair. Then for each name makes a fetch to get all the images for that breed and stores it at the slide.
 * Using memoized selectors for more complex derived data from state: not memoized selectors causes re-paints and slows down the chart resizing the viewport.
 * Card component using composition and render props patterns to create a reusable component where put pieces of ui as a content card. It is used to render the main chart and the extra totals information as reuse example.
 * not using App Router as this is not a SPA. Only one main route. If the app scales we will need the App Router framework (or other framework as next.js).
@@ -59,17 +59,17 @@ unit tests
 - check for more code coverage in tests
 - scaffolding of end to end tests with cypress (or similar)
 - Lazy loading and code splitting
+- accessibility tools to check the content https://www.w3.org/WAI/test-evaluate/tools/selecting/
 
 ## TODO:
-- add snapshots tests
-- topTenBreeds, selectBreedsByImagePercentage use a more meaninful name
-- thunkApi as RootThunkAPI ???
-- check BEM in css
-- can the logic of selectors or thunk be optimized?
-- decisions about middleware vs thunk for fetch actions
-- accessibility and aria attributes
-- styled components (is it needed at this project scale?)
-
+- [DONE] accessibility and aria attributes
+- [DONE] can the logic of selectors or thunk be optimized?
+- [DONE] thunkApi as RootThunkAPI ??? instead of pass all the object, pass just the method rejectWithValue
+- [DONE] styled components (is it needed at this project scale?). Moved to section 'If you had more time'
+- [DONE] topTenBreeds, selectBreedsByImagePercentage use a more meaninful name
+- [DONE] decisions about middleware vs thunk vs asyncThunk for fetch actions
+- [DONE] check BEM in css
+- [DONE] add some snapshots tests
 - [DONE] move style modules into his own dir
 - [DONE] code tests and github workflow to check tests and linting
 - [DONE] rename BreedsChart to BreedsChartCard, and Totals to TotalsCard
@@ -88,4 +88,4 @@ unit tests
 - [Thursday 21]: First decisions about general architecture. Task1 and Task2 implementation.
 - [Friday 22]: Task3 implementation 
 - [Saturday 23]: Tests and general beautify of the code and project
-- [Sunday 24]: Added snapshots tests. Final checks and reviews
+- [Sunday 24]: Added snapshots tests. Final checks and reviews.

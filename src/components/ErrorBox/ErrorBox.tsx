@@ -6,7 +6,7 @@ type ErrorBoxProps = {
 }
 
 const ErrorBox = ({ errorMessage }: ErrorBoxProps) => {
-  return (<div className={ styles.errorBox } role="alert">
+  return (<div className={ styles.errorBox } aria-label="Error content" role="alert" aria-live='polite'>
     <p>{ errorMessage }</p>
     <p>Please, retry again later</p>
   </div>)
