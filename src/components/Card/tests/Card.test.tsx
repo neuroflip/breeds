@@ -82,12 +82,12 @@ describe('Card Initial render and Load Content correctly', () => {
       mockStore.dispatch(fetchBreeds())
     )
 
-    const cardElement = screen.getByRole('article');
-
     waitFor(() => {
       expect(screen.queryByText('ErrorBox')).not.toBeInTheDocument();
       expect(screen.getByText('LoadingSpinner')).toBeInTheDocument();
     })
+
+    const cardElement = screen.getByRole('article');
 
     expect(cardElement).toBeInTheDocument();
     expect(cardElement.className).toBe('card');
@@ -120,13 +120,14 @@ describe('Card Load Content correctly with error', () => {
     await act(async () =>
       mockStore.dispatch(fetchBreeds())
     )
-    const cardElement = screen.getByRole('article');
 
     waitFor(() => {
       //waitsFor initial loading state
       expect(screen.queryByText('ErrorBox')).not.toBeInTheDocument();
       expect(screen.getByText('LoadingSpinner')).toBeInTheDocument();
     })
+
+    const cardElement = screen.getByRole('article');
 
     expect(screen.queryByText('LoadingSpinner')).not.toBeInTheDocument()
     expect(screen.queryByText('Card Content')).not.toBeInTheDocument()
