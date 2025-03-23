@@ -15,7 +15,7 @@ function App() {
       dispatch(fetchBreeds())
   }, [dispatch])
 
-  return <>
+  return <main>
     <Suspense fallback={ <LoadingSpinner /> }>
       <BreedsChartCard />    
     </Suspense>
@@ -23,7 +23,7 @@ function App() {
       <TotalsCard />
     </Suspense>
     
-  </>
+  </main>
 }
 
 export default App

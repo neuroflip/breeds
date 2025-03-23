@@ -30,14 +30,14 @@ h1 {
   color: var(--secondary);
 }
 
-#root {
+main {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 @media (min-width: 768px) {
-  #root {
+  main {
     flex-direction: row;
   }
 }
