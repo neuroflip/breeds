@@ -7,7 +7,7 @@ const defaultErrorMessage = "Please, retry again later"
 
 describe('Error Box', () => {
   test('initial render', () => {
-    render(<ErrorBox errorMessage={ inputErrorMessage } />);
+    const { container } = render(<ErrorBox errorMessage={ inputErrorMessage } />);
 
     const errorBoxElement = screen.getByRole('alert');
     const inputErrorMessageElement = screen.getByText(inputErrorMessage);
@@ -18,5 +18,8 @@ describe('Error Box', () => {
     expect(standardErrorMessageElement).toBeInTheDocument();
     expect(errorBoxElement.className).toBe('errorBox');
     expect(errorBoxElement.getAttribute('role')).toBe('alert');
+
+    //snapshot
+    expect(container).toMatchSnapshot()
   });
 });

@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BreedsChartCard > initial render 1`] = `
+<div>
+  <div
+    data-testid="Card"
+  >
+    ResponsivePieChart
+  </div>
+</div>
+`;

@@ -88,4 +88,4 @@ unit tests
 - [Thursday 21]: First decisions about general architecture. Task1 and Task2 implementation.
 - [Friday 22]: Task3 implementation 
 - [Saturday 23]: Tests and general beautify of the code and project
-- [Sunday 24]: Final checks and reviews
+- [Sunday 24]: Added snapshots tests. Final checks and reviews

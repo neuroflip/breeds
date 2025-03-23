@@ -17,9 +17,12 @@ vi.mock('../hooks/useBreedsChartCard', () => ({
 
 describe('BreedsChartCard', () => {
   test('initial render', () => {
-    render(<BreedsChartCard />);
+    const { container } = render(<BreedsChartCard />);
 
     expect(screen.getByTestId('Card')).toBeInTheDocument()
     expect(screen.getByText('ResponsivePieChart')).toBeInTheDocument()
+
+    //snapshot
+    expect(container).toMatchSnapshot()
   });
 });

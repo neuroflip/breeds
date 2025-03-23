@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ResponsivePieChart > renders the chart parts correctly 1`] = `
+<div>
+  <div
+    data-testid="ResponsiveContainer"
+  >
+    <div
+      data-testid="PieChart"
+    >
+      <div
+        data-testid="Pie"
+      >
+        <div
+          data-testid="Cell"
+        />
+        <div
+          data-testid="Cell"
+        />
+        <div
+          data-testid="Cell"
+        />
+         
+      </div>
+      <div
+        data-testid="Legend"
+      />
+      <div
+        data-testid="Tooltip"
+      />
+    </div>
+  </div>
+</div>
+`;

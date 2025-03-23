@@ -18,7 +18,7 @@ vi.mock('recharts', async () => {
 
 describe('ResponsivePieChart', () => {
   test('renders the chart parts correctly', () => {
-    render(<ResponsivePieChart data={ mockData } />);
+    const { container } = render(<ResponsivePieChart data={ mockData } />);
 
     expect(screen.getByTestId('ResponsiveContainer')).toBeInTheDocument();
     expect(screen.getByTestId('PieChart')).toBeInTheDocument();
@@ -26,5 +26,8 @@ describe('ResponsivePieChart', () => {
     expect(screen.getByTestId('Legend')).toBeInTheDocument();
     expect(screen.getByTestId('Tooltip')).toBeInTheDocument();
     expect(screen.getAllByTestId('Cell').length).toBe(mockData.length);
+
+    //snapshot
+    expect(container).toMatchSnapshot()
   });
 });

@@ -44,7 +44,7 @@ describe('Card Initial render and Load Content correctly', () => {
   afterAll(() => server.close())
 
   test('initial render before dispatch main action', () => {
-    renderWithProviders(<Card>
+    const { container } = renderWithProviders(<Card>
       Card Content
     </Card>, { store: mockStore });
 
@@ -55,6 +55,9 @@ describe('Card Initial render and Load Content correctly', () => {
     expect(cardElement.className).toBe('card');
     expect(screen.queryByText('ErrorBox')).not.toBeInTheDocument();
     expect(screen.queryByText('LoadingSpinner')).not.toBeInTheDocument();
+
+    //snapshot
+    expect(container).toMatchSnapshot()
   });
 
   test('initial render before dispatch main action to check title renderProp is called', () => {
