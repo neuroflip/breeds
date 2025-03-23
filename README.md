@@ -17,6 +17,8 @@ to start:
 unit tests
 > npm run test
 
+Check package.json for more options
+
 ## Describe all the decisions that you took during development and the reasoning behind them.
 
 ### Architecture:
