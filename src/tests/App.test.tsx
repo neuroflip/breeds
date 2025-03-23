@@ -57,6 +57,14 @@ describe('App and lazy loading', () => {
   afterEach(() => server.resetHandlers())
   afterAll(() => server.close())
 
+  test('initial render', async () => {
+    renderWithProviders(<App />, { store: mockStore });
+    
+    const main = screen.getByRole('main')
+
+    expect(main).toBeInTheDocument()
+  })
+
   test('renders lazy content', async () => {
     renderWithProviders(<App />, { store: mockStore });
     
