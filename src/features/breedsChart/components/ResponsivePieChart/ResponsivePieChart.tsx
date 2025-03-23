@@ -17,7 +17,6 @@ const generatePieCells = (data: BreedsData[]) => {
 }
 
 const ResponsivePieChart = ({ data }: BreedsPieChartProps) => {
-
   return (<>
     <ResponsiveContainer width="100%" height={350}>
       <PieChart width={400} height={400}>

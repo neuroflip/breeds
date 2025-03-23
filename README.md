@@ -19,7 +19,7 @@ unit tests
 
 ## Describe all the decisions that you took during development and the reasoning behind them.
 
-* Architecture:
+Architecture:
 - the code is organized into /src/features as a single feature. This allows to scale the project including new features
 - all the features and components are self encapsulated at his own dir, including the code, store slices, custom hooks, tests, styles or other resources like images.
 
@@ -47,7 +47,8 @@ unit tests
   - the ResponsibePieChart file renders the PieChar using rechart. I decided test it mocking all the needed rechart elemets because i don't need to test the rechart functionality but the usage of it. So i'm mocking it and not checking the screen elements rendered after the usage. Makes more sense to be done at end-to-ends tests.
   - I decided to test the more complex selectors (image totals and image % calculation) and not the simple ones that are gets to the slice data.
   - the asyncThunk has no unit tests, but is tested as integration tests in all the components using it. This is Redux code that no needs to be tested.
-  - test-utils file have some utilities to wrap an element or a custom Hook with the store provider.
+  - test-utils file have some utilities to wrap an element or a custom Hook with the store provider
+  - using msw in tests to mock the api calls
 * project sent to review using github project. It adds visibility of all the implementation process for the reviewers. Created a continous integration github workflow to lint and test.
 
 ## If you had more time, what other features would you add to your app and how would you build them?
@@ -61,6 +62,9 @@ unit tests
 - accessibility tools to check the content https://www.w3.org/WAI/test-evaluate/tools/selecting/
 
 ## TODO:
+- Añadir metas y og metas en el html
+
+- [DONE] Move the initial dispatch for data from BreedsChartCard to App. This way the cards are only consumers of data
 - [DONE] Added tests for App lazy loading a component
 - [DONE] Compiling i'm getting the warning: "(!) Some chunks are larger than 500 kB after minification." So I make dinamyc imports for code splitting at App.tsx
 - [DONE] accessibility and aria attributes
