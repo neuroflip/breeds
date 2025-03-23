@@ -2,7 +2,7 @@ import ResponsivePieChart from "./components/ResponsivePieChart/ResponsivePieCha
 import Card from "../../components/Card/Card"
 import useBreedsChart from "./hooks/useBreedsChart"
 
-const BreedsChart = () => {
+const BreedsChartCard = () => {
   const { renderTitle, breedImagesPercent } = useBreedsChart()
 
   return <Card renderTitle={renderTitle}>
@@ -10,4 +10,4 @@ const BreedsChart = () => {
     </Card>
 }
 
-export default BreedsChart
+export default BreedsChartCard

@@ -1,7 +1,7 @@
-import BreedsChart from './features/breedsChart/BreedsChart'
+import BreedsChart from './features/breedsChart/BreedsChartCard'
 
-import './App.css'
-import Totals from './features/breedsChart/Totals'
+import './styles/App.css'
+import Totals from './features/breedsChart/TotalsCard'
 
 function App() {
   return <>

@@ -1,6 +1,6 @@
 import { describe, expect, test, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import BreedsChart from '../BreedsChart';
+import BreedsChart from '../BreedsChartCard';
 
 vi.mock('../components/ResponsivePieChart/ResponsivePieChart')
 vi.mock('../../../components/Card/Card')

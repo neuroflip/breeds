@@ -9,6 +9,7 @@ const store = configureStore({
   }
 })
 
+//For testing pourposes
 const setupStore = () => {
   return store
 }

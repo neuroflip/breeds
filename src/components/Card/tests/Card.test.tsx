@@ -7,7 +7,8 @@ import { renderWithProviders } from '../../../test-utils';
 import { http, HttpResponse, delay } from 'msw'
 import { setupServer, SetupServerApi } from 'msw/node'
 import { BREAD_API, getFetchImageAPIUrl } from '../../../features/breedsChart/slices/utils';
-import testData from './allBreeds.json'
+import breedsData from './allBreeds.json'
+import imagesData from './breedImages.json'
 
 let server: SetupServerApi;
 const mockStore = configureStore({
@@ -24,15 +25,15 @@ describe('Card Initial render and Load Content correctly', () => {
     const handlers = [
       http.get(BREAD_API, async () => {
         await delay(150)
-        return HttpResponse.json(testData)
+        return HttpResponse.json(breedsData)
       }),
       http.get(getFetchImageAPIUrl('affenpinscher'), async () => {
           await delay(150)
-          return HttpResponse.json(testData)
+          return HttpResponse.json(imagesData)
       }),
       http.get(getFetchImageAPIUrl('african'), async () => {
           await delay(150)
-          return HttpResponse.json(testData)
+          return HttpResponse.json(imagesData)
         })
     ]
     
@@ -78,16 +79,17 @@ describe('Card Initial render and Load Content correctly', () => {
       mockStore.dispatch(fetchBreeds())
     )
 
-    waitFor(() => {
-      const cardElement = screen.getByRole('article');
+    const cardElement = screen.getByRole('article');
 
-      expect(cardElement).toBeInTheDocument();
-      expect(cardElement.className).toBe('card');
+    waitFor(() => {
       expect(screen.queryByText('ErrorBox')).not.toBeInTheDocument();
       expect(screen.getByText('LoadingSpinner')).toBeInTheDocument();
     })
 
+    expect(cardElement).toBeInTheDocument();
+    expect(cardElement.className).toBe('card');
     expect(screen.queryByText('LoadingSpinner')).not.toBeInTheDocument()
+    expect(screen.queryByText('ErrorBox')).not.toBeInTheDocument();
     expect(screen.getByText('Card Content')).toBeInTheDocument()
   });
 });
@@ -115,18 +117,19 @@ describe('Card Load Content correctly with error', () => {
     await act(async () =>
       mockStore.dispatch(fetchBreeds())
     )
+    const cardElement = screen.getByRole('article');
 
     waitFor(() => {
-      const cardElement = screen.getByRole('article');
-
-      expect(cardElement).toBeInTheDocument();
-      expect(cardElement.className).toBe('card');
+      //waitsFor initial loading state
       expect(screen.queryByText('ErrorBox')).not.toBeInTheDocument();
       expect(screen.getByText('LoadingSpinner')).toBeInTheDocument();
     })
 
     expect(screen.queryByText('LoadingSpinner')).not.toBeInTheDocument()
     expect(screen.queryByText('Card Content')).not.toBeInTheDocument()
+    expect(cardElement).toBeInTheDocument();
+    expect(cardElement.className).toBe('card');
     expect(screen.getByText('ErrorBox')).toBeInTheDocument()
+
   })
 });

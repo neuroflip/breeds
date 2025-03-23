@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000
   },
   test: {
-    environment: 'happy-dom',
+    environment: 'jsdom',
     globals: true,
     setupFiles: ['./src/setup-test-environment.ts'],
     include: ['./src/**/*.{spec,test}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],

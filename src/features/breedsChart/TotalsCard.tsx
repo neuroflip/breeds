@@ -4,7 +4,7 @@ import { selectTotalBreedsAmount, selectTotalImagesAmount } from "./slices/selec
 
 const renderTitle = () => <h1>Totals</h1>
 
-const Totals = () => {
+const TotalsCard = () => {
     const totalBreeds = useAppSelector(selectTotalBreedsAmount)
     const totalImages = useAppSelector(selectTotalImagesAmount)
 
@@ -14,4 +14,4 @@ const Totals = () => {
         </Card>
 }
 
-export default Totals
+export default TotalsCard

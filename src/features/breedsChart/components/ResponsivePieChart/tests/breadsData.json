@@ -1,5 +1,5 @@
-
-[{
-  "name": "breed1",
-  "value": 5
-}]
+[
+  { "name": "Breed1", "value": 30 },
+  { "name": "Breed2", "value": 20 },
+  { "name": "Breed3", "value": 50 }
+]

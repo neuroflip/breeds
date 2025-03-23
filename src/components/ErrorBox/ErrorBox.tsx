@@ -1,5 +1,5 @@
 
-import styles from './errorBox.module.css'
+import styles from './styles/errorBox.module.css'
 
 type ErrorBoxProps = {
   errorMessage: string
