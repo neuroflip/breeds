@@ -1,6 +1,6 @@
 
 import { selectError, selectIsLoading } from '../../features/breedsChart/slices/selectors';
-import { useAppSelector } from '../../store/store';
+import { useAppSelector } from '../../store/hooks';
 import ErrorBox from '../ErrorBox/ErrorBox';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import styles from './styles/card.module.css';

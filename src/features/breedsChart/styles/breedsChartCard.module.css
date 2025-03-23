@@ -1,10 +1,10 @@
-.breedsChart__title {
+.breedsChartCard__title {
   display: flex;
   width: fit-content;
   margin: 10px auto;
 }
 
-.breedsChart__title img {
+.breedsChartCard__title img {
   width: 35x;
   height: 35px;
   margin: auto 10px;

@@ -5,14 +5,6 @@ import mockData from './breadsData.json'
 
 vi.mock('recharts', async () => {
   const actual = await vi.importActual<typeof import('recharts')>('recharts');
-  return {
-    ...actual,
-    ResponsiveContainer: vi.fn(({ children }) => <div data-testid="ResponsiveContainer">{children}</div>),
-  };
-});
-
-vi.mock('recharts', async () => {
-  const actual = await vi.importActual<typeof import('recharts')>('recharts');
 
   return {
     ...actual,

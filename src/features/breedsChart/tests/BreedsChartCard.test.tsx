@@ -1,10 +1,10 @@
 import { describe, expect, test, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import BreedsChart from '../BreedsChartCard';
+import BreedsChartCard from '../BreedsChartCard';
 
 vi.mock('../components/ResponsivePieChart/ResponsivePieChart')
 vi.mock('../../../components/Card/Card')
-vi.mock('../hooks/useBreedsChart', () => ({
+vi.mock('../hooks/useBreedsChartCard', () => ({
   __esModule: true,
   default: () => Promise.resolve({
     renderTitle: vi.fn(),
@@ -15,9 +15,9 @@ vi.mock('../hooks/useBreedsChart', () => ({
   })
 }));
 
-describe('BreedsChart', () => {
+describe('BreedsChartCard', () => {
   test('initial render', () => {
-    render(<BreedsChart />);
+    render(<BreedsChartCard />);
 
     expect(screen.getByTestId('Card')).toBeInTheDocument()
     expect(screen.getByText('ResponsivePieChart')).toBeInTheDocument()

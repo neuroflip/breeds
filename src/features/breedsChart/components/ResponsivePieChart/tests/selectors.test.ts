@@ -3,25 +3,8 @@ import { selectBreedsByImagePercentage, selectTotalImagesAmount } from '../../..
 import { AppState } from '../../../../../store/types';
 import longData from './longBreadsData.json'
 import shortData from './breadsData.json'
-
-const expectedValuesForLongData = [
-  { name: 'Breed3', value: 12.5 },
-  { name: 'Breed6', value: 12.5 },
-  { name: 'Breed9', value: 12.5 },
-  { name: 'Breed12', value: 12.5 },
-  { name: 'Breed1', value: 7.5 },
-  { name: 'Breed4', value: 7.5 },
-  { name: 'Breed7', value: 7.5 },
-  { name: 'Breed10', value: 7.5 },
-  { name: 'Breed2', value: 5 },
-  { name: 'Breed5', value: 5 }
-];
-
-const expectedValuesForShortData = [
-  { name: 'Breed3', value: 50 },
-  { name: 'Breed1', value: 30 },
-  { name: 'Breed2', value: 20 }
-];
+import expectedValuesForLongData from './expectedValuesForLongData.json'
+import expectedValuesForShortData from './expectedValuesForShortData.json'
 
 describe('Calculated selectors', () => {
   test('selectTotalImagesAmount using logData', () => {

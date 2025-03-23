@@ -1,5 +1,5 @@
 import Card from "../../components/Card/Card"
-import { useAppSelector } from "../../store/store"
+import { useAppSelector } from "../../store/hooks"
 import { selectTotalBreedsAmount, selectTotalImagesAmount } from "./slices/selectors"
 
 const renderTitle = () => <h1>Totals</h1>

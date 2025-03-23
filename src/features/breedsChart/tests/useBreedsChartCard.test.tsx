@@ -1,9 +1,9 @@
 import { afterAll, afterEach, beforeAll, describe, expect, test } from 'vitest';
 import { renderHookWithProviders } from '../../../test-utils';
-import useBreedsChart from '../hooks/useBreedsChart';
+import useBreedsChartCard from '../hooks/useBreedsChartCard';
 import { http, HttpResponse, delay } from 'msw'
 import { setupServer, SetupServerApi } from 'msw/node'
-import { BREAD_API, getFetchImageAPIUrl } from '../../../features/breedsChart/slices/utils';
+import { BREAD_API, getFetchImageAPIUrl } from '../slices/utils';
 import breedsData from './allBreeds.json'
 import imagesData from './breedImages.json'
 import { breedsChartSlice, fetchBreeds } from '../slices/BreedsChartSlice';
@@ -24,7 +24,7 @@ const mockStore = configureStore({
   }
 })
 
-describe('useBreedsChart', () => {
+describe('useBreedsChartCard', () => {
   beforeAll(() => {
     const handlers = [
       http.get(BREAD_API, async () => {
@@ -48,13 +48,13 @@ describe('useBreedsChart', () => {
   afterAll(() => server.close())
 
   test('render the hook to check renderTitle', () => {
-    const { result } = renderHookWithProviders(() => useBreedsChart(), { store: mockStore });
+    const { result } = renderHookWithProviders(() => useBreedsChartCard(), { store: mockStore });
     const { renderTitle } = result.current;
     const title = renderTitle();
     const titleChildren = title.props.children
 
     expect(title.type).toBe('div');
-    expect(title.props.className).toBe('breedsChart__title');
+    expect(title.props.className).toBe('breedsChartCard__title');
     expect(titleChildren.length).toBe(2)
     //Image from title
     expect(titleChildren[0].type).toBe('img')
@@ -68,7 +68,7 @@ describe('useBreedsChart', () => {
   });
 
   test('render the hook to check breedImagesPercent data', async () => {
-    const { result } = renderHookWithProviders(() => useBreedsChart(), { store: mockStore });
+    const { result } = renderHookWithProviders(() => useBreedsChartCard(), { store: mockStore });
 
     await act(async () =>
       mockStore.dispatch(fetchBreeds())
