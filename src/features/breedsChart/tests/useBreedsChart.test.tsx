@@ -58,8 +58,8 @@ describe('useBreedsChart', () => {
     expect(titleChildren.length).toBe(2)
     //Image from title
     expect(titleChildren[0].type).toBe('img')
-    expect(titleChildren[0].props.width).toBe(50)
-    expect(titleChildren[0].props.height).toBe(50)
+    expect(titleChildren[0].props.width).toBe(35)
+    expect(titleChildren[0].props.height).toBe(35)
     expect(titleChildren[0].props.src).toBe('/src/features/breedsChart/images/dogFingerprint.png')
     expect(titleChildren[0].props.alt).toBe('dog fingerprint')
     //text from title
@@ -79,6 +79,6 @@ describe('useBreedsChart', () => {
     expect(breedImagesPercent).toEqual([
       { name: 'affenpinscher', value: 50 },
       { name: 'african', value: 50 }
-    ]) 
+    ])
   });
 });
