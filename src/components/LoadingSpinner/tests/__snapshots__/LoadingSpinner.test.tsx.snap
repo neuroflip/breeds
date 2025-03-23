@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LoadingSpinner > initial render 1`] = `
+<div>
+  <div
+    aria-busy="true"
+    aria-live="polite"
+    class="loadingSpinner"
+    role="progressbar"
+  />
+</div>
+`;

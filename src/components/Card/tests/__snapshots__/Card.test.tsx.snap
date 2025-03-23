@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Card Initial render and Load Content correctly > initial render before dispatch main action 1`] = `
+<div>
+  <article
+    class="card"
+  >
+    Card Content
+  </article>
+</div>
+`;

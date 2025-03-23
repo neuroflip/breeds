@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Error Box > initial render 1`] = `
+<div>
+  <div
+    class="errorBox"
+    role="alert"
+  >
+    <p>
+      Something went wrong
+    </p>
+    <p>
+      Please, retry again later
+    </p>
+  </div>
+</div>
+`;

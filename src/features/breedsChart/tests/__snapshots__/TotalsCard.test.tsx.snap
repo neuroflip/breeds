@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Totals > after dispatch and load data 1`] = `
+<div>
+  <div
+    data-testid="Card"
+  >
+    <p>
+      Total Breeds: 
+      2
+    </p>
+    <p>
+      Total Images: 
+      18
+    </p>
+  </div>
+</div>
+`;

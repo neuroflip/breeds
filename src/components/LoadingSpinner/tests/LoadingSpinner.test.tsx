@@ -4,7 +4,7 @@ import LoadingSpinner from '../LoadingSpinner';
 
 describe('LoadingSpinner', () => {
   test('initial render', () => {
-    render(<LoadingSpinner />);
+    const { container } = render(<LoadingSpinner />);
 
     const loadingSpinnerElement = screen.getByRole('progressbar');
 
@@ -12,5 +12,8 @@ describe('LoadingSpinner', () => {
     expect(loadingSpinnerElement.className).toBe('loadingSpinner');
     expect(loadingSpinnerElement.getAttribute('aria-busy')).toBeTruthy();
     expect(loadingSpinnerElement.getAttribute('aria-live')).toBe('polite');
+
+    //snapshot
+    expect(container).toMatchSnapshot()
   });
 });

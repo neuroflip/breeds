@@ -47,10 +47,11 @@ describe('Totals', () => {
     expect(screen.getByTestId('Card')).toBeInTheDocument();
     expect(screen.getByText('Total Breeds: 0')).toBeInTheDocument();
     expect(screen.getByText('Total Images: 0')).toBeInTheDocument();
+
   });
 
   test('after dispatch and load data', async () => {
-    renderWithProviders(<Totals />, { store: mockStore });
+    const { container } = renderWithProviders(<Totals />, { store: mockStore });
     
     await act(async () =>
       mockStore.dispatch(fetchBreeds())
@@ -58,5 +59,8 @@ describe('Totals', () => {
 
     expect(screen.getByText('Total Breeds: 2')).toBeInTheDocument();
     expect(screen.getByText('Total Images: 18')).toBeInTheDocument();
+
+    //snapshot
+    expect(container).toMatchSnapshot();
   });
 });
