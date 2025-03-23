@@ -58,10 +58,11 @@ unit tests
 - UI: header hidding on scroll
 - check for more code coverage in tests
 - scaffolding of end to end tests with cypress (or similar)
-- Lazy loading and code splitting
 - accessibility tools to check the content https://www.w3.org/WAI/test-evaluate/tools/selecting/
 
 ## TODO:
+- [DONE] Added tests for App lazy loading a component
+- [DONE] Compiling i'm getting the warning: "(!) Some chunks are larger than 500 kB after minification." So I make dinamyc imports for code splitting at App.tsx
 - [DONE] accessibility and aria attributes
 - [DONE] can the logic of selectors or thunk be optimized?
 - [DONE] thunkApi as RootThunkAPI ??? instead of pass all the object, pass just the method rejectWithValue
