@@ -1,12 +1,12 @@
-import { DogApiError, RootThunkAPI } from "./types";
+import { DogApiError } from "./types";
 
 const getFetchImageAPIUrl = (name: string) => {
     return `https://dog.ceo/api/breed/${name}/images`
 }
 
-const checkResponseAndThrowErrorIfNeedded = (responseStatus: number, data: DogApiError, thunkApi: RootThunkAPI) =>{
+const checkResponseAndThrowErrorIfNeedded = (responseStatus: number, data: DogApiError, rejectWithValue: (value: string) => void) =>{
     if (responseStatus !== 200) {
-      throw thunkApi.rejectWithValue(data.message);
+      throw rejectWithValue(data.message);
     }
 }
 

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { RootThunkAPI, BreedsData } from "./types";
+import { BreedsData } from "./types";
 import { checkResponseAndThrowErrorIfNeedded, getFetchImageAPIUrl } from "./utils";
 import { BREAD_API } from "./utils";
 
@@ -13,12 +13,12 @@ const fetchBreeds = createAsyncThunk('breedsChart/fetchBreeds', async (_, thunkA
   const response = await fetch(BREAD_API);
   const data = await response.json();
 
-  checkResponseAndThrowErrorIfNeedded(response.status, data, thunkApi as RootThunkAPI);
+  checkResponseAndThrowErrorIfNeedded(response.status, data, thunkApi.rejectWithValue);
     const result = Object.keys(data.message).map(async (breedName: string) => {
     const response = await fetch(getFetchImageAPIUrl(breedName));
     const data = await response.json();
 
-    checkResponseAndThrowErrorIfNeedded(response.status, data, thunkApi as RootThunkAPI);
+    checkResponseAndThrowErrorIfNeedded(response.status, data, thunkApi.rejectWithValue);
 
     return {
       name: breedName,

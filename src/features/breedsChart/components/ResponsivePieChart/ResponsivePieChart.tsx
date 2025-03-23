@@ -10,8 +10,8 @@ const getLabel = function(entry: BreedsData) {
   return `${ entry.value }%`;
 }
 
-const generatePieCells = (topTenBreeds: BreedsData[]) => {
-  return topTenBreeds.map((_entry, index) => {
+const generatePieCells = (data: BreedsData[]) => {
+  return data.map((_entry, index) => {
     return <Cell key={`cell-${index}`} fill={colorPalette[index % colorPalette.length]} />
   })
 }
