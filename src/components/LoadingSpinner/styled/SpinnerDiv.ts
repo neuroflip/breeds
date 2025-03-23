@@ -1,4 +1,6 @@
-.loadingSpinner {
+import styled from "styled-components";
+
+const SpinnerDiv = styled.div`
   width: 48px;
   height: 48px;
   border: 5px solid transparent;
@@ -8,9 +10,10 @@
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
   margin: 60px auto;
-}
 
-@keyframes rotation {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+  @keyframes rotation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }`;
+
+export default SpinnerDiv

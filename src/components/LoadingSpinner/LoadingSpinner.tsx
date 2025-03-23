@@ -1,8 +1,8 @@
 
-import styles from './styles/loadingSpinner.module.css'
+import SpinnerDiv from "./styled/SpinnerDiv"
 
 const LoadingSpinner = () => {
-  return <div className={ styles.loadingSpinner } role="progressbar" aria-label="Content loading" aria-busy="true" aria-live="polite"></div>
+  return <SpinnerDiv role="progressbar" aria-label="Content loading" aria-busy="true" aria-live="polite"></SpinnerDiv>
 }
 
 export default LoadingSpinner

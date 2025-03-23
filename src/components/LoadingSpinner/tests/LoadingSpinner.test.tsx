@@ -9,7 +9,6 @@ describe('LoadingSpinner', () => {
     const loadingSpinnerElement = screen.getByRole('progressbar');
 
     expect(loadingSpinnerElement).toBeInTheDocument();
-    expect(loadingSpinnerElement.className).toBe('loadingSpinner');
     expect(loadingSpinnerElement.getAttribute('aria-busy')).toBeTruthy();
     expect(loadingSpinnerElement.getAttribute('aria-live')).toBe('polite');
 

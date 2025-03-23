@@ -6,7 +6,7 @@ exports[`LoadingSpinner > initial render 1`] = `
     aria-busy="true"
     aria-label="Content loading"
     aria-live="polite"
-    class="loadingSpinner"
+    class="sc-VHjGu lgGRHW"
     role="progressbar"
   />
 </div>
