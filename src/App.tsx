@@ -1,12 +1,12 @@
-import BreedsChart from './features/breedsChart/BreedsChart'
+import BreedsChartCard from './features/breedsChart/BreedsChartCard'
 
-import './App.css'
-import Totals from './features/breedsChart/Totals'
+import './styles/App.css'
+import TotalsCard from './features/breedsChart/TotalsCard'
 
 function App() {
   return <>
-    <BreedsChart />
-    <Totals />
+    <BreedsChartCard />
+    <TotalsCard />
   </>
 }
 
