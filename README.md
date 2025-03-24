@@ -45,6 +45,8 @@ Check package.json for more options
 * ***Responsive design***: Flex layout at main container with different orientations for different screen sizes
 * Not using sass because the css is simple.
 * Not using styled components because the css usage is simple and the ui does not require great reusability. If the project scales, we will need to rethink the ui using styled components.
+* Using an ErrorBoundary at App level to catch rendering errors on components
+* App lazy loads his content using lazy/suspend. This enables code splitting for improved perfonmance on large chunks.
 
 ### About Tests:
   - the ResponsivePieChart file renders the PieChart using rechart. I decided test it mocking all the needed rechart elemets because i don't need to test the rechart functionality but the usage of it. So i'm mocking it and not checking the screen elements rendered after the usage. Makes more sense to be done at end-to-ends tests.
@@ -69,6 +71,8 @@ Check package.json for more options
 ### TODOs:
 - [DONE] Add metas and og metas to index.html
 - [DONE] Move the initial dispatch for data from BreedsChartCard to App. This way the cards are only consumers of data
+- [DONE] Add an error boundary object to catch rendering errors
+- [DONE] code splitting lazy/suspend
 - [DONE] Added tests for App lazy loading a component
 - [DONE] Compiling i'm getting the warning: "(!) Some chunks are larger than 500 kB after minification." So I make dinamyc imports for code splitting at App.tsx
 - [DONE] accessibility and aria attributes
