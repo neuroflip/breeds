@@ -2,7 +2,7 @@ import { waitFor, screen } from '@testing-library/react'
 import { describe, expect, test, vi } from 'vitest'
 import App from '../App'
 import { configureStore } from '@reduxjs/toolkit'
-import { breedsChartSlice } from '../features/breedsChart/slices/BreedsChartSlice'
+import { breedsChartSlice, fetchBreeds } from '../features/breedsChart/slices/BreedsChartSlice'
 import { renderWithProviders } from '../test-utils'
 
 vi.mock('../features/breedsChart/TotalsCard')
@@ -58,7 +58,15 @@ describe('App and lazy loading', () => {
     waitFor(async () => {
       expect(await screen.findByText('BreedsChartCard')).toBeInTheDocument()
       expect(await screen.findByText('TotalsCard')).toBeInTheDocument()
-      expect(mockDispatch).toHaveBeenCalled();
+    })
+  })
+
+  test('dispatch of initial actions', async () => {    
+    renderWithProviders(<App />, { store: mockStore });
+
+    waitFor(async () => {
+      expect(mockDispatch).toHaveBeenCalledWith(breedsChartSlice.actions.initBreeds);
+      expect(mockDispatch).toHaveBeenCalledWith(fetchBreeds)
     })
   })
 })
